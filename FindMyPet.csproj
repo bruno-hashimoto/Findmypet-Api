@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <AssemblyName>Authenticate</AssemblyName>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(RunConfiguration)' == 'Authenticate' " />
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.9" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.9">
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.9" />
+      <PackageReference Include="MySqlConnector" Version="2.2.5" />
+      <PackageReference Include="System.Linq" Version="4.3.0" />
+      <PackageReference Include="Dapper" Version="2.0.123" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Models\TodoModel.cs" />
+      <Compile Remove="Data\**" />
+      <Compile Remove="ViewModels\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Data\**" />
+      <EmbeddedResource Remove="ViewModels\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Data\**" />
+      <None Remove="ViewModels\**" />
+      <None Remove="Business\" />
+      <None Remove="Repositories\Interfaces\" />
+      <None Remove="MySqlConnector" />
+      <None Remove="System.Linq" />
+      <None Remove="Dapper" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="Data\**" />
+      <Content Remove="ViewModels\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Business\" />
+      <Folder Include="Repository\Interfaces\" />
+    </ItemGroup>
+</Project>
