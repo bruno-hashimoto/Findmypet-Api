@@ -3650,11 +3650,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/brunohashimoto/Desktop/FindMyPet/FindMyPet.csproj",
+      "projectUniqueName": "/Users/brunohashimoto/Desktop/Findmypet-Api/FindMyPet.csproj",
       "projectName": "Authenticate",
-      "projectPath": "/Users/brunohashimoto/Desktop/FindMyPet/FindMyPet.csproj",
+      "projectPath": "/Users/brunohashimoto/Desktop/Findmypet-Api/FindMyPet.csproj",
       "packagesPath": "/Users/brunohashimoto/.nuget/packages/",
-      "outputPath": "/Users/brunohashimoto/Desktop/FindMyPet/obj/",
+      "outputPath": "/Users/brunohashimoto/Desktop/Findmypet-Api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/brunohashimoto/.nuget/NuGet/NuGet.Config"
@@ -3731,7 +3731,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.200/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.201/RuntimeIdentifierGraph.json"
       }
     }
   }

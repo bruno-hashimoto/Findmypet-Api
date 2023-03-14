@@ -25,10 +25,10 @@ namespace FindMyPet.Business
             return await _post.savePost(newPost.ImageBase, newPost.Description, newPost.Latitude, newPost.Longitude);
         }
 
-		public async Task<IEnumerable<Feed>?> requestFeed(double latitude, double longitude)
+		public async Task<IEnumerable<Feed>> requestFeed(double latitude, double longitude)
 		{
 			return await _post.selectPosts(latitude, longitude);
         }
-	}
+    }
 }
 

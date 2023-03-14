@@ -7,7 +7,7 @@ namespace FindMyPet.Repository.Interfaces
     {
         Task<bool> savePost(string image, string description, double latitude, double longitude);
 
-        Task<IEnumerable<Feed>> selectPosts(double? latitude, double? longitude);
+        Task<IEnumerable<Feed>> selectPosts(double latitude, double longitude);
     }
 }
 

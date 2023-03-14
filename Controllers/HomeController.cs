@@ -11,10 +11,12 @@ public class HomeController : ControllerBase
 {
  
     private readonly ApplicationBusiness _applicationBusiness;
+    private readonly MessageRequest _returnHttp;
 
-    public HomeController(ApplicationBusiness app)
+    public HomeController(ApplicationBusiness app, MessageRequest ob)
     {
         _applicationBusiness = app;
+        _returnHttp = ob;
     }
 
     [Authorize(Roles = "admin")]
@@ -26,11 +28,13 @@ public class HomeController : ControllerBase
 
         if(save)
         {
-            return Ok("Post adicionado com sucesso.");
+            ReturnSanitize message = await _returnHttp.GetStatus("Post adicionado com sucesso.", 200);
+            return Ok(message);
         }
         else
         {
-            return BadRequest("Não foi possível criar o post");
+            ReturnSanitize message = await _returnHttp.GetStatus("Não foi possível criar o post", 400);
+            return BadRequest(message);
         }
     }
 

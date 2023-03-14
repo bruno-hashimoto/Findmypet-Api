@@ -35,6 +35,11 @@ namespace FindMyPet.Business
 			
             return token;
 		}
-	}
+
+        public async Task<bool> Created(CreatedUser user)
+        {
+            return await _accoutRepository.CreateUser(user);
+        }
+    }
 }
 

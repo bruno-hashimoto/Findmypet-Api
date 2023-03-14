@@ -6,6 +6,8 @@ namespace FindMyPet.Repository.Interfaces
 	public interface IAccoutRepository
     {
         Task<UserAuthenticate> ViewAuthenticate(string user, string pass);
+
+        Task<bool> CreateUser(CreatedUser user);
     }
 }
 

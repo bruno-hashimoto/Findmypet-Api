@@ -33,6 +33,7 @@ builder.Services.AddScoped<IPostRepository, PostRepository>();
 // Business
 builder.Services.AddTransient<AccoutBusiness>();
 builder.Services.AddTransient<ApplicationBusiness>();
+builder.Services.AddTransient<MessageRequest>();
 
 builder.Services.AddControllers();
 builder.Services.AddHttpContextAccessor();

@@ -1,3 +1,4 @@
+using System.Net;
 using FindMyPet.Business;
 using FindMyPet.Models;
 using FindMyPet.Services;
@@ -10,10 +11,13 @@ namespace FindMyPet.Controllers;
 public class AccountController : ControllerBase
 {
     private readonly AccoutBusiness _accoutBusiness;
+    private readonly MessageRequest _returnHttp;
 
-    public AccountController(AccoutBusiness accoutBusiness)
+
+    public AccountController(AccoutBusiness accoutBusiness, MessageRequest ob)
     {
         _accoutBusiness = accoutBusiness;
+        _returnHttp = ob;
     }
 
     [HttpPost("v1/authenticate")]
@@ -31,14 +35,33 @@ public class AccountController : ControllerBase
             }
             else
             {
-                return BadRequest("Credenciais inválidas!");
+                ReturnSanitize result = await _returnHttp.GetStatus("Credenciais inválidas!", 401);
+
+                return BadRequest(result);
             }
-
-
         }
         catch (Exception)
         {
-            return BadRequest("Ops.. aconteceu algum problema, tente novamente mais tarde!");
+            ReturnSanitize result = await _returnHttp.GetStatus("Ops.. aconteceu algum problema, tente novamente mais tarde!", 400);
+
+            return BadRequest(result);
         }
+    }
+
+    [Authorize(Roles = "admin")]
+    [HttpPost("v1/create")]
+    public async Task<IActionResult> Create(CreatedUser user)
+    {
+        try
+        {
+            var result = await _accoutBusiness.Created(user);
+
+            return CreatedAtAction("Usuário criado com sucesso!", 201);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex);
+        }
+
     }
 }

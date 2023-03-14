@@ -11,6 +11,9 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
 using System.Collections.Generic;
 using System.Collections;
 using System.Net.NetworkInformation;
+using static System.Net.Mime.MediaTypeNames;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace FindMyPet.Repository
 {
@@ -63,7 +66,7 @@ namespace FindMyPet.Repository
             }
         }
 
-        public async Task<IEnumerable<Feed>?> selectPosts(double? latitude, double? longitude)
+        public async Task<IEnumerable<Feed>> selectPosts(double latitude, double longitude)
         {
             try
             {
